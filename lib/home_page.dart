@@ -38,6 +38,8 @@ class _HomePageState extends State<HomePage> {
                   return Text("No Data found");
                 }
                 return ListView.builder(
+                  scrollDirection: Axis.vertical,
+                  physics: BouncingScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: snapshot.data!.length,
                   itemBuilder: (context, index) {

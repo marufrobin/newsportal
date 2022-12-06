@@ -8,7 +8,7 @@ class CustomHttp {
     List<Articles> allNewsData = [];
     Articles articles;
     var responce = await http.get(Uri.parse(
-        "https://newsapi.org/v2/everything?q=bitcoin&apiKey=6975dc346ae44021bbdb995007a82ca1"));
+        "https://newsapi.org/v2/everything?q=tech&pageSize=100&page=1&apiKey=6975dc346ae44021bbdb995007a82ca1"));
 
     var data = jsonDecode(responce.body)["articles"];
     print("responce is ${data}");
