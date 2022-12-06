@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  void initState() {
+    fetchingNewsData();
+    super.initState();
+  }
+
+  fetchingNewsData() async {
+    var responce = await http.get(Uri.parse(
+        "https://newsapi.org/v2/everything?q=tech&pageSize=1&page=1&apiKey=6975dc346ae44021bbdb995007a82ca1"));
+    print("responce is ${responce.body}");
+  }
 
   @override
   Widget build(BuildContext context) {
